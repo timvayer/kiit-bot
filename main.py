@@ -7,7 +7,8 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-await update.message.reply_text("Тепер все працює без PythonAnywhere!")
+await update.message.reply_text("КІТ оновився. Це точно працює.")
+
 
 
 if __name__ == '__main__':
