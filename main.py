@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-await update.message.reply_text("КІТ оновився. Точно.")
-
+@dp.message(Command("start"))
+async def start(message: Message):
+    await message.reply_text("KIT оновився. Точно.")
 
 
 if __name__ == "__main__":
