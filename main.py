@@ -1,17 +1,14 @@
-import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from dotenv import load_dotenv
 
-load_dotenv()
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = 7760817892:AAHNgIG2M7QDDKApPy00xFLv42nFEkF_kCY
 
-@dp.message(Command("start"))
-async def start(message: Message):
-    await message.reply_text("KIT оновився. Точно.")
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("КІТ оновився. Це точно.")
 
+app = ApplicationBuilder().token(TOKEN).build()
+app.add_handler(CommandHandler("start", start))
 
-if __name__ == "__main__":
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
-    app.add_handler(CommandHandler("start", start))
-    app.run_polling()
+async def run():
+    await app.initialize()
+    await app.start()
